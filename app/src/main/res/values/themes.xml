@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="Base.Theme.Kanban" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#0277BD</item>
+        <item name="colorPrimaryVariant">#01579B</item>
+        <item name="android:windowBackground">#0277BD</item>
+    </style>
+
+    <style name="Theme.Kanban" parent="Base.Theme.Kanban" />
+
+    <style name="CustomTabLayout">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
