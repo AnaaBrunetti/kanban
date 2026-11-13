@@ -11,7 +11,9 @@
 
         <action
             android:id="@+id/action_splashFragment3_to_autentication"
-            app:destination="@id/authentication" />
+            app:destination="@id/authentication"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -32,12 +34,6 @@
                 android:id="@+id/action_loginFragment_to_recoverAccountFragment"
                 app:destination="@id/recoverAccountFragment" />
 
-            <action
-                android:id="@+id/action_loginFragment_to_homeFragment"
-                app:destination="@id/homeFragment"
-                app:popUpTo="@id/splashFragment"
-                app:popUpToInclusive="true" />
-
         </fragment>
 
         <fragment
@@ -56,5 +52,9 @@
         android:id="@+id/homeFragment"
         android:name="com.anacarolina.kanban.ui.HomeFragment"
         android:label="HomeFragment" />
+
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment" />
 
 </navigation>

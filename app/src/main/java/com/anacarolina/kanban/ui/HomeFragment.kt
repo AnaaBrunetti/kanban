@@ -12,15 +12,14 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,22 +30,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun initTabs() {
-        val adapter = ViewPagerAdapter(requireActivity())
+        val pageAdapter = ViewPagerAdapter(requireActivity())
 
-        adapter.addFragment(TodoFragment(), R.string.status_task_todo)
-        adapter.addFragment(DoingFragment(), R.string.status_task_doing)
-        adapter.addFragment(DoneFragment(), R.string.status_task_done)
+        binding.viewPager.adapter = pageAdapter
 
-        binding.viewPager.adapter = adapter
-        binding.viewPager.offscreenPageLimit = 3
+        pageAdapter.addFragment(TodoFragment(), R.string.status_task_todo)
+        pageAdapter.addFragment(DoingFragment(), R.string.status_task_doing)
+        pageAdapter.addFragment(DoneFragment(), R.string.status_task_done)
+
+        binding.viewPager.offscreenPageLimit = pageAdapter.itemCount
 
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = getString(adapter.getTitle(position))
+            tab.text = getString(pageAdapter.getTitle(position))
         }.attach()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

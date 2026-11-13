@@ -30,21 +30,20 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListener() {
-        binding.textViewCriarConta.setOnClickListener {
+
+        binding.buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_global_homeFragment)
+        }
+
+        binding.btnRegister.setOnClickListener {
             findNavController().navigate(
                 R.id.action_loginFragment_to_registerFragment
             )
         }
 
-        binding.textViewRecuperarConta.setOnClickListener {
+        binding.btnRecover.setOnClickListener {
             findNavController().navigate(
                 R.id.action_loginFragment_to_recoverAccountFragment
-            )
-        }
-
-        binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_loginFragment_to_homeFragment
             )
         }
     }

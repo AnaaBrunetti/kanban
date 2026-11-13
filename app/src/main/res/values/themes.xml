@@ -1,16 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Base.Theme.Kanban" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">#0277BD</item>
-        <item name="colorPrimaryVariant">#01579B</item>
-        <item name="android:windowBackground">#0277BD</item>
+    <style name="Base.Theme.Kanban"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/color_default</item>
+        <item name="colorPrimaryVariant">@color/color_default</item>
+        <item name="android:windowBackground">@color/color_default</item>
+
     </style>
 
-    <style name="Theme.Kanban" parent="Base.Theme.Kanban" />
+    <style name="Theme.Kanban"
+        parent="Base.Theme.Kanban" />
 
-    <style name="CustomTabLayout">
+    <style name="CustomTabLayout"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
+
     </style>
 
 </resources>

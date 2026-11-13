@@ -3,12 +3,17 @@ package com.anacarolina.kanban.ui.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import java.util.ArrayList
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    private val fragmentList = ArrayList<Fragment>()
-    private val titleList = ArrayList<Int>()
+    private val fragmentList: MutableList<Fragment> = ArrayList()
+    private val titleList: MutableList<Int> = ArrayList()
+
+    fun getTitle(position: Int): Int {
+        return titleList[position]
+    }
 
     fun addFragment(fragment: Fragment, title: Int) {
         fragmentList.add(fragment)
@@ -17,10 +22,6 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
 
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]
-    }
-
-    fun getTitle(position: Int): Int {
-        return titleList[position]
     }
 
     override fun getItemCount(): Int {
